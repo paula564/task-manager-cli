@@ -1,8 +1,10 @@
 import json
 import time
+import os
 from pathlib import Path
 from dataclasses import dataclass, asdict
 from enum import Enum
+
 
 #add a new task to the json file
 
@@ -32,9 +34,13 @@ def load(file):
 
     #if the path exists, read the file 
     if path.exists():
-        with open(path, "r", encoding="utf-8") as file:
-            tasks = json.load(file)
-        return tasks
+        file_size = os.path.getsize(path)
+        if file_size > 0:
+            with open(path, "r", encoding="utf-8") as file:
+                tasks = json.load(file)
+            return tasks 
+        else:
+            return None
     else:
         return None
 
@@ -53,10 +59,11 @@ def add(c, t):
 
     path = Path("data/tasks.json")
     tasks = {}
+    file_size = os.path.getsize(path)
 
     #if the path exists, read the file, find the next item number
     #add the task to the data dictionary 
-    if path.exists():
+    if path.exists() and file_size > 0:
         with open(path, "r", encoding="utf-8") as file:
             tasks = json.load(file)
 
@@ -68,6 +75,9 @@ def add(c, t):
         tasks[1] = asdict(Task(task, Status.TODO.name))
 
     append(path, tasks)
+
+
+    
 
     
 print("Welcome to Task Manager! Please select a valid command.\n")
