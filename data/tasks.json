@@ -1,7 +1,14 @@
 {
-    "1": "bana",
-    "2": "bruh",
-    "3": "yas",
-    "4": "ysjdfkjhdf",
-    "5": "paula is cool"
+    "1": {
+        "description": "Bake banana bread",
+        "status": "TODO"
+    },
+    "2": {
+        "description": "Walk the dog",
+        "status": "TODO"
+    },
+    "3": {
+        "description": "Create list",
+        "status": "TODO"
+    }
 }
