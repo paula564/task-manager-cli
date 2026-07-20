@@ -55,7 +55,7 @@ def append(path, data):
     with open(path, "w", encoding="utf-8") as file:
         json.dump(data, file, indent=4)
 
-def add(c, t):
+def add(t):
 
     path = Path("data/tasks.json")
     tasks = {}
@@ -76,8 +76,13 @@ def add(c, t):
 
     append(path, tasks)
 
+def update(id, t):
+     tasks = load("data/tasks.json")
+     tasks[id]["description"] = t
 
+     append("data/tasks.json", tasks)
     
+
 
     
 print("Welcome to Task Manager! Please select a valid command.\n")
@@ -99,8 +104,9 @@ while running:
             command = string
 
         if command == "add":
-            add(command, task)
-            print("Task added sucessfully")
+            add(task)
+            print("Task added sucessfully.")
+
         elif command == "list":
         
             if load("data/tasks.json") is not None:
@@ -110,6 +116,13 @@ while running:
                     print()
             else:
                 print("whoops! no tasks yet. add one!")
+
+        elif command == "update":
+
+                command, id, new_task = a, b, c = string.split(maxsplit=2)
+                update(id, new_task)
+                print(f"Task {id} updated.")
+                
                 
         
                 
