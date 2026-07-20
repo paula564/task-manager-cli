@@ -10,5 +10,13 @@
     "3": {
         "description": "Make bread",
         "status": "TODO"
+    },
+    "4": {
+        "description": "dry the dishes",
+        "status": "TODO"
+    },
+    "5": {
+        "description": "bring home some pancakes",
+        "status": "TODO"
     }
 }

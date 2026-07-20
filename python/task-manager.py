@@ -69,10 +69,10 @@ def add(t):
 
         index = len(tasks) + 1
 
-        tasks[index] = asdict(Task(task, Status.TODO.name))
+        tasks[index] = asdict(Task(t, Status.TODO.name))
     else:
         #else, initialize to 1
-        tasks[1] = asdict(Task(task, Status.TODO.name))
+        tasks[1] = asdict(Task(t, Status.TODO.name))
 
     append(path, tasks)
 
